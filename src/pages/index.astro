@@ -73,7 +73,7 @@ const sortedPosts = posts.sort((a, b) => b.data.date.getTime() - a.data.date.get
     {sortedPosts.map(post => (
       <article class="post">
         <h2>
-          <a href={`/posts/${post.id.replace(/\/index\.md$/, '')}`}>
+          <a href={`${import.meta.env.BASE_URL}/posts/${post.id.replace(/\/index\.md$/, '')}`}>
             {post.data.title}
           </a>
         </h2>
