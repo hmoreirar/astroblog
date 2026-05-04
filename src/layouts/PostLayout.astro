@@ -1,0 +1,71 @@
+---
+export interface Props {
+  title: string;
+  date: Date;
+  tags: string[];
+  cover?: string;
+}
+const { title, date, tags, cover } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | Zine Digital</title>
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      font-family: 'Courier New', monospace;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+    }
+    h1 { color: #fff; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+    .cover { max-width: 100%; height: auto; margin: 1rem 0; border: 1px solid #333; }
+    .meta { color: #888; font-size: 0.9rem; margin: 1rem 0; }
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0; }
+    .tag {
+      background: #222;
+      color: #0af;
+      padding: 0.25rem 0.5rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      border: 1px solid #333;
+    }
+    a { color: #0af; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .content { margin-top: 2rem; }
+    .content img { max-width: 100%; height: auto; }
+    .content code {
+      background: #222;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9rem;
+    }
+    .content pre {
+      background: #222;
+      padding: 1rem;
+      overflow-x: auto;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/">← Zine Digital</a>
+    <h1>{title}</h1>
+    <div class="meta">{date.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+    <div class="tags">
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+  </header>
+  {cover && <img src={cover} alt={title} class="cover" />}
+  <main class="content">
+    <slot /><!-- Aquí se inyecta el contenido del post -->
+  </main>
+</body>
+</html>

@@ -1,0 +1,90 @@
+---
+import { getCollection } from 'astro:content';
+
+// Obtiene todos los posts y los ordena por fecha (más reciente primero)
+const posts = await getCollection('posts');
+const sortedPosts = posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zine Digital</title>
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      font-family: 'Courier New', monospace;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #fff;
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.5rem;
+    }
+    .post {
+      margin: 2rem 0;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #222;
+    }
+    .post h2 {
+      margin: 0 0 0.5rem 0;
+    }
+    .post h2 a {
+      color: #0af;
+      text-decoration: none;
+    }
+    .post h2 a:hover {
+      text-decoration: underline;
+    }
+    .meta {
+      color: #888;
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+    }
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 0.5rem 0;
+    }
+    .tag {
+      background: #222;
+      color: #0af;
+      padding: 0.25rem 0.5rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Zine Digital</h1>
+    <p>arte · poesía · tecnología · hacktivismo · DIY · microcontroladores</p>
+  </header>
+
+  <main>
+    {sortedPosts.map(post => (
+      <article class="post">
+        <h2>
+          <a href={`/posts/${post.id.replace(/\/index\.md$/, '')}`}>
+            {post.data.title}
+          </a>
+        </h2>
+        <div class="meta">
+          {post.data.date.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </div>
+        <div class="tags">
+          {post.data.tags.map(tag => <span class="tag">{tag}</span>)}
+        </div>
+      </article>
+    ))}
+  </main>
+</body>
+</html>
