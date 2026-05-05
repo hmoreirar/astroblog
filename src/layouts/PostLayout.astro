@@ -48,6 +48,7 @@ import { formatDate } from '../utils/dateFormat';
   })} />
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
   <header>
     <a href={`${import.meta.env.BASE_URL}/`}>← Zine Digital</a>
     <h1>{title}</h1>
@@ -57,7 +58,7 @@ import { formatDate } from '../utils/dateFormat';
     </div>
   </header>
   {cover && <img src={cover} alt={title} class="cover" />}
-  <main class="content">
+  <main id="main-content" class="content">
     <slot /><!-- Aquí se inyecta el contenido del post -->
   </main>
 </body>
