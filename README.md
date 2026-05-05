@@ -14,11 +14,11 @@ Blog estático minimalista construido con Astro, dedicado a compartir contenido 
 
 Todos los comandos se ejecutan desde la raíz del proyecto:
 
-| Comando           | Acción                                          |
-|-------------------|-------------------------------------------------|
-| npm run dev       | Inicia el servidor de desarrollo en localhost:4321 |
-| npm run build     | Genera el sitio de producción en ./dist/        |
-| npm run preview   | Previsualiza el build local antes de desplegar  |
+| Comando         | Acción                                             |
+| --------------- | -------------------------------------------------- |
+| npm run dev     | Inicia el servidor de desarrollo en localhost:4321 |
+| npm run build   | Genera el sitio de producción en ./dist/           |
+| npm run preview | Previsualiza el build local antes de desplegar     |
 
 ## Agregar nuevos posts
 
@@ -29,7 +29,7 @@ Todos los comandos se ejecutan desde la raíz del proyecto:
    title: "Título del post"
    date: "2026-05-04"
    tags: ["arte", "tecnología"]
-   cover: "./imagen.jpg"  # Opcional, ruta relativa a la carpeta del post
+   cover: "./imagen.jpg" # Opcional, ruta relativa a la carpeta del post
    ---
    ```
 3. Agregar cualquier imagen o asset en la misma carpeta del post
@@ -37,8 +37,8 @@ Todos los comandos se ejecutan desde la raíz del proyecto:
 
 ## Tecnologías utilizadas
 
-| Tecnología | Versión   | Propósito                     |
-|-----------|-----------|-------------------------------|
-| Astro     | v6.2.1    | Framework de sitios estáticos |
-| Zod       | Integrado | Validación de esquemas        |
-| TypeScript| Configurado | Tipado estático              |
+| Tecnología | Versión     | Propósito                     |
+| ---------- | ----------- | ----------------------------- |
+| Astro      | v6.2.1      | Framework de sitios estáticos |
+| Zod        | Integrado   | Validación de esquemas        |
+| TypeScript | Configurado | Tipado estático               |
