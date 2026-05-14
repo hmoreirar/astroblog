@@ -2,7 +2,7 @@
 title: "Termohigrómetro con ESP32: punto de partida"
 date: "2026-05-05"
 tags: ["esp32", "iot", "hardware", "supabase"]
-cover: "./esp32.jpeg"
+cover: ""
 ---
 
 ![Setup inicial](./esp32.jpeg)

@@ -2,14 +2,14 @@
 title: "Circuito Entropía: Microcontroladores DIY"
 date: "2026-04-28"
 tags: ["tecnología", "DIY", "microcontroladores"]
-cover: "./diagram.png"
+cover: "./justincase.webp"
 ---
 
 # Circuito Entropía
 
 Construyendo circuitos con microcontroladores de forma artesanal y experimental.
 
-## Materiales Necesarios
+## Materiales Necesarios (./justincase.webp)
 
 - Arduino Uno o compatible
 - Protoboard
