@@ -2,7 +2,7 @@
 title: "Circuito Entropía: Microcontroladores DIY"
 date: "2026-04-28"
 tags: ["tecnología", "DIY", "microcontroladores"]
-cover: "./justincase.webp"
+cover: "/images/posts/circuito-entropia/justincase.webp"
 ---
 
 # Circuito Entropía

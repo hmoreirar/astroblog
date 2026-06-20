@@ -2,7 +2,7 @@
 title: "Poetry Camera: la camara que escribe poemas en vez de tomar fotos"
 date: "2026-06-19"
 tags: ["arte", "tecnologia", "DIY", "IA"]
-cover: "./poetry-camera.jpg"
+cover: "/images/posts/poetry-camera/poetry-camera.jpg"
 ---
 
 Una camara que no toma fotos. Suena a contradiccion, pero existe y se llama **Poetry Camera**: un dispositivo con lente que, en lugar de capturar imagenes, imprime poemas generados por inteligencia artificial sobre lo que ve.

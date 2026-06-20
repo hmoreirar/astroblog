@@ -2,7 +2,7 @@
 title: "Primer Zine: Manifiesto Digital"
 date: "2026-04-15"
 tags: ["arte", "hacktivismo", "zine"]
-cover: "./cover.jpg"
+cover: "/images/posts/primer-zine/cover.jpg"
 ---
 
 # Manifiesto Digital
