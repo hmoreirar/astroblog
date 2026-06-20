@@ -16,14 +16,14 @@ import { formatDate } from '../utils/dateFormat';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title} | Zine Digital</title>
+  <title>{title} | otro.blog.mas</title>
   <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
   <link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
   <script is:inline>(function(){var t=localStorage.getItem('theme');if(t==='light'||(!t&&window.matchMedia('(prefers-color-scheme:light)').matches))document.documentElement.classList.add('light')})();</script>
   <link rel="canonical" href={`${Astro.site}${Astro.url.pathname}`} />
-  <meta name="description" content={`Artículo sobre ${title} en Zine Digital`} />
-  <meta property="og:title" content={`${title} | Zine Digital`} />
-  <meta property="og:description" content={`Artículo sobre ${title} en Zine Digital`} />
+  <meta name="description" content={`Artículo sobre ${title} en otro.blog.mas`} />
+  <meta property="og:title" content={`${title} | otro.blog.mas`} />
+  <meta property="og:description" content={`Artículo sobre ${title} en otro.blog.mas`} />
   <meta property="og:url" content={`${Astro.site}${Astro.url.pathname}`} />
   <meta property="og:type" content="article" />
   {cover && <meta property="og:image" content={`${Astro.site}${import.meta.env.BASE_URL}${cover}`} />}
@@ -42,7 +42,7 @@ import { formatDate } from '../utils/dateFormat';
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Zine Digital"
+      "name": "otro.blog.mas"
     },
     "url": `${Astro.site}${Astro.url.pathname}`,
     "image": cover ? `${Astro.site}${import.meta.env.BASE_URL}${cover}` : undefined,
@@ -53,7 +53,7 @@ import { formatDate } from '../utils/dateFormat';
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
   <header>
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem">
-      <a href={`${import.meta.env.BASE_URL}/`}>← Zine Digital</a>
+      <a href={`${import.meta.env.BASE_URL}/`}>← otro.blog.mas</a>
       <ThemeToggle />
     </div>
     <h1>{title}</h1>
