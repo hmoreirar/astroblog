@@ -16,6 +16,8 @@ Poetry Camera nacio como un proyecto artistico de **Kelin Carolyn Zhang** y **Ry
 > "Lo que no intento hacer es que la IA escriba un poema que yo podria haber escrito por mi cuenta. Estas tecnologias son tan nuevas que es facil llegar con una perspectiva unica y hacer algo que el mundo no haya visto antes. Animaria a mas artistas a interactuar con la IA con una mente abierta y pensar en lo que podrian hacer que antes no era posible."
 > -- Kelin Carolyn Zhang
 
+![Persona usando Poetry Camera](./testimonial-anthropic.png)
+
 ## Como funciona
 
 El hardware interno esta basado en **Raspberry Pi** y el diseno es **open source**, asi que cualquiera con los conocimientos y las piezas puede construir su propia version. Para quien prefiera el producto terminado, ya esta disponible para **preorden en $349**.
