@@ -1,18 +1,55 @@
+:root {
+  --bg: #111;
+  --text: #eee;
+  --heading: #fff;
+  --border: #333;
+  --subtle-border: #222;
+  --meta: #888;
+  --tag-bg: #222;
+  --tag-text: #0af;
+  --tag-border: #333;
+  --link: #0af;
+  --code-bg: #222;
+  --skip-link-bg: #0af;
+  --skip-link-text: #111;
+  --accent: #0af;
+  color-scheme: dark;
+}
+
+:root.light {
+  --bg: #f5f0e8;
+  --text: #222;
+  --heading: #000;
+  --border: #ccc;
+  --subtle-border: #ddd;
+  --meta: #888;
+  --tag-bg: #e8e0d0;
+  --tag-text: #06a;
+  --tag-border: #ccc;
+  --link: #06a;
+  --code-bg: #e8e0d0;
+  --skip-link-bg: #06a;
+  --skip-link-text: #fff;
+  --accent: #06a;
+  color-scheme: light;
+}
+
 body {
-  background: #111;
-  color: #eee;
+  background: var(--bg);
+  color: var(--text);
   font-family: "Courier New", monospace;
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 1rem;
   line-height: 1.6;
 }
+
 .skip-link {
   position: absolute;
   top: -40px;
   left: 6px;
-  background: #0af;
-  color: #111;
+  background: var(--skip-link-bg);
+  color: var(--skip-link-text);
   padding: 8px;
   text-decoration: none;
   border-radius: 3px;
@@ -22,9 +59,10 @@ body {
 .skip-link:focus {
   top: 6px;
 }
+
 h1 {
-  color: #fff;
-  border-bottom: 1px solid #333;
+  color: var(--heading);
+  border-bottom: 1px solid var(--border);
   padding-bottom: 0.5rem;
 }
 
@@ -32,11 +70,11 @@ h1 {
   max-width: 100%;
   height: auto;
   margin: 1rem 0;
-  border: 1px solid #333;
+  border: 1px solid var(--border);
 }
 
 .meta {
-  color: #888;
+  color: var(--meta);
   font-size: 0.9rem;
   margin: 1rem 0;
 }
@@ -49,16 +87,16 @@ h1 {
 }
 
 .tag {
-  background: #222;
-  color: #0af;
+  background: var(--tag-bg);
+  color: var(--tag-text);
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
   font-size: 0.8rem;
-  border: 1px solid #333;
+  border: 1px solid var(--tag-border);
 }
 
 a {
-  color: #0af;
+  color: var(--link);
   text-decoration: none;
 }
 
@@ -76,23 +114,23 @@ a:hover {
 }
 
 .content code {
-  background: #222;
+  background: var(--code-bg);
   padding: 0.2rem 0.4rem;
   border-radius: 3px;
   font-size: 0.9rem;
 }
 
 .content pre {
-  background: #222;
+  background: var(--code-bg);
   padding: 1rem;
   overflow-x: auto;
-  border: 1px solid #333;
+  border: 1px solid var(--border);
 }
 
 .post {
   margin: 2rem 0;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid var(--subtle-border);
 }
 
 .post h2 {
@@ -100,7 +138,7 @@ a:hover {
 }
 
 .post h2 a {
-  color: #0af;
+  color: var(--link);
   text-decoration: none;
 }
 
