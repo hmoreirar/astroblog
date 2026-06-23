@@ -9,6 +9,7 @@ const { title, date, tags, cover } = Astro.props;
 import ThemeToggle from '../components/ThemeToggle.astro';
 import '../styles/global.css';
 import { formatDate } from '../utils/dateFormat';
+import { getUniqueTags } from '../utils/tags';
 ---
 
 <!DOCTYPE html>
@@ -59,7 +60,9 @@ import { formatDate } from '../utils/dateFormat';
     <h1>{title}</h1>
     <div class="meta">{date.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
     <div class="tags">
-      {tags.map(tag => <span class="tag">{tag}</span>)}
+      {getUniqueTags(tags).map(tag => (
+        <a href={`${import.meta.env.BASE_URL}/tags/${tag}/`} class="tag">{tag}</a>
+      ))}
     </div>
   </header>
   {cover && <img src={`${import.meta.env.BASE_URL}${cover}`} alt={title} class="cover" />}
