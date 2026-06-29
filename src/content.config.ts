@@ -12,6 +12,7 @@ const posts = defineCollection({
     date: z.coerce.date(), // Convierte string a Date para ordenamiento
     tags: z.array(z.string()),
     cover: z.string().optional(), // Imagen de portada opcional
+    matrixRain: z.boolean().optional(), // Animacion Matrix-style como portada
   }),
 });
 

@@ -4,9 +4,11 @@ export interface Props {
   date: Date;
   tags: string[];
   cover?: string;
+  matrixRain?: boolean;
 }
-const { title, date, tags, cover } = Astro.props;
+const { title, date, tags, cover, matrixRain } = Astro.props;
 import ThemeToggle from '../components/ThemeToggle.astro';
+import MatrixRain from '../components/MatrixRain.astro';
 import '../styles/global.css';
 import { formatDate } from '../utils/dateFormat';
 import { getUniqueTags } from '../utils/tags';
@@ -65,7 +67,7 @@ import { getUniqueTags } from '../utils/tags';
       ))}
     </div>
   </header>
-  {cover && <img src={`${import.meta.env.BASE_URL}${cover}`} alt={title} class="cover" />}
+  {matrixRain ? <MatrixRain /> : cover && <img src={`${import.meta.env.BASE_URL}${cover}`} alt={title} class="cover" />}
   <main id="main-content" class="content">
     <slot /><!-- Aquí se inyecta el contenido del post -->
   </main>
