@@ -1,5 +1,5 @@
 ---
-title: "Peter Thiel en Sudamérica: cuando el capitalismo de vigilancia aterriza en Chile y Argentina"
+title: "El vigilante llega al sur"
 date: "2026-05-27"
 tags: ["política", "tecnología", "capitalismo de vigilancia", "vigilancia", "poder"]
 cover: ""

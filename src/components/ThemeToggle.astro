@@ -18,15 +18,16 @@
     color: var(--text);
     cursor: pointer;
     padding: 0.35rem 0.5rem;
-    border-radius: 4px;
     display: inline-flex;
     align-items: center;
     line-height: 1;
     font-family: inherit;
     font-size: 0.85rem;
+    box-shadow: 3px 3px 0 0 var(--subtle-border);
   }
   .theme-toggle:hover {
-    background: var(--tag-bg);
+    background: var(--accent);
+    color: var(--bg);
   }
 
   html:not(.light) .moon-icon { display: none; }

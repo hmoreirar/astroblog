@@ -29,6 +29,14 @@
 - Commits en espanol
 - Sin importaciones de librerias externas mas alla de Astro y sus integraciones
 
+## Titulos de los posts
+Evitar la estructura rigida `Concepto: explicacion` (con dos puntos), tipica de IA. Reglas:
+- Sin `X: Y` (un solo golpe, no la suma "palabra tecnica + definicion")
+- Verbo o imagen antes que etiqueta tecnica ("Camaras que persiguen" > "Flock Cameras: vigilancia")
+- Longitud corta (3-6 palabras)
+- Tono critico, hacker y/o poetico, coherente con el blog
+- Permitir frases nominales fuertes, preguntas, juegos de palabras y jerga propia
+
 ## Paginas principales
 - `/` - Listado de posts con paginacion y tags
 - `/posts/[slug]/` - Post individual

@@ -1,5 +1,5 @@
 ---
-title: "Primer Zine: Manifiesto Digital"
+title: "Número cero"
 date: "2026-04-15"
 tags: ["arte", "hacktivismo", "zine"]
 cover: "/images/posts/primer-zine/cover.jpg"

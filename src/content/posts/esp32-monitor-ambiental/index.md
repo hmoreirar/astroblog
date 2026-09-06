@@ -1,5 +1,5 @@
 ---
-title: "Termohigrómetro con ESP32: punto de partida"
+title: "Mi primer sensor que habla solo"
 date: "2026-05-05"
 tags: ["esp32", "iot", "hardware", "supabase"]
 cover: ""

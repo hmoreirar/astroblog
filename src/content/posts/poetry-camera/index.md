@@ -1,5 +1,5 @@
 ---
-title: "Poetry Camera: la camara que escribe poemas en vez de tomar fotos"
+title: "Una cámara que prefiere las palabras"
 date: "2026-06-19"
 tags: ["arte", "tecnologia", "DIY", "IA"]
 cover: "/images/posts/poetry-camera/poetry-camera.jpg"

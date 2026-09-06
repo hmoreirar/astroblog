@@ -1,5 +1,5 @@
 ---
-title: "El Reich de los Nerds: El fascismo de Silicon Valley y la guerra contra la democracia"
+title: "Los dueños de Silicon Valley no piden permiso"
 date: "2026-08-24"
 tags: ["tecnologia", "politica", "capitalismo", "libro", "critica"]
 cover: "/images/posts/reich-de-los-nerds/cover.jpg"

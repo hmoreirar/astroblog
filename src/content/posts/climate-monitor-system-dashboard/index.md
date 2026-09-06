@@ -1,5 +1,5 @@
 ---
-title: "Construyendo mi Climate Monitor System: ESP32 + Dashboard Web en Tiempo Real" 
+title: "Un termómetro para mi casa, un tablero para mis datos"
 date: "2026-05-13"
 tags: ["ESP32", "IoT", "React", "Dashboard", "NodeJS", "Vercel", "Web Development"]
 cover: ""

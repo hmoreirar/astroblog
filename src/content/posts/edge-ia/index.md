@@ -1,5 +1,5 @@
 ---
-title: "Edge AI: cuando la inteligencia vive cerca del dato"
+title: "Inteligencia que no sube a la nube"
 date: "2026-08-25"
 tags: ["ia", "edge", "iot", "tecnologia"]
 cover: ""

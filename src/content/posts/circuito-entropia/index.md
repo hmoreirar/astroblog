@@ -1,5 +1,5 @@
 ---
-title: "Circuito Entropía: Microcontroladores DIY"
+title: "Circuitos que devoran el azar"
 date: "2026-04-28"
 tags: ["tecnología", "DIY", "microcontroladores"]
 cover: "/images/posts/circuito-entropia/justincase.webp"

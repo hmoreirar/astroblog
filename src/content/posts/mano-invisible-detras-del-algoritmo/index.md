@@ -1,5 +1,5 @@
 ---
-title: "La mano invisible detrás del algoritmo: reseña del libro de Esteban Magnani"
+title: "¿Neutral? Los algoritmos no"
 date: "2026-06-21"
 tags: ["libros", "tecnologia", "sociedad", "algoritmos"]
 cover: ""

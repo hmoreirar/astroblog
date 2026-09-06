@@ -1,5 +1,5 @@
 ---
-title: "Flock Cameras: cuando la inteligencia artificial deja de observar y comienza a seguirte"
+title: "Cámaras que dejaron de observar y empezaron a perseguir"
 date: "2026-08-06"
 tags: ["vigilancia", "privacidad", "ia", "vision-artificial", "tecnologia"]
 cover: ""

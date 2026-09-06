@@ -1,5 +1,5 @@
 ---
-title: "Algorave: Cuando el codigo se vuelve musica en vivo"
+title: "Vivir el código"
 date: "2026-06-28"
 tags: ["algorave", "live-coding", "musica", "arte", "hacktivismo"]
 matrixRain: true

@@ -1,5 +1,5 @@
 ---
-title: "Zoocosis y sociedad actual: cuando el encierro se convierte en conducta"
+title: "Jaulas sin barrotes"
 date: "2026-09-06"
 tags: ["sociedad", "comportamiento", "tecnologia", "filosofia"]
 cover: "https://www.ciperchile.cl/wp-content/uploads/2243212-e1531236254341.jpg"
