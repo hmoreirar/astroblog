@@ -2,7 +2,6 @@
 title: "Vivir el código"
 date: "2026-06-28"
 tags: ["algorave", "live-coding", "musica", "arte", "hacktivismo"]
-matrixRain: true
 ---
 
 La pantalla ocupa toda la pared del fondo. Sobre ella, caracteres verdes caen como lluvia en una terminal gigante. Lineas de codigo se suceden, se borran, se reescriben. La musica no viene de un DJ ni de una banda: brota de ese texto que alguien teclea en vivo frente a cien personas que bailan. Una funcion define un ritmo, un bucle genera una melodia, un error inesperado se convierte en glitch sonoro. Esto no es un concierto de musica electronica convencional. Es un algorave.

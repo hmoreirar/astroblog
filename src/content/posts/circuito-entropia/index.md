@@ -5,7 +5,7 @@ tags: ["tecnología", "DIY", "microcontroladores"]
 cover: "/images/posts/circuito-entropia/justincase.webp"
 ---
 
-# Circuito Entropía
+## Circuito Entropía
 
 Construyendo circuitos con microcontroladores de forma artesanal y experimental.
 

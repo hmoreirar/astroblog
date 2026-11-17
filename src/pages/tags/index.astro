@@ -1,43 +1,33 @@
 ---
-import { getCollection } from 'astro:content';
-import { collectTags } from '../../utils/tags';
-import '../../styles/global.css';
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { collectTags } from "../../utils/tags";
+import { BASE } from "../../utils/base";
 
-const posts = await getCollection('posts');
-const tags = collectTags(posts);
-const sortedTags = [...tags.entries()].sort(([a], [b]) => a.localeCompare(b));
+const posts = await getCollection("posts");
+const tags = [...collectTags(posts).entries()].sort(([, a], [, b]) =>
+  a.label.localeCompare(b.label, "es"),
+);
 ---
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tags | otro.blog.mas</title>
-  <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
-  <link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
-  <script is:inline>(function(){var t=localStorage.getItem('theme');if(t==='light'||(!t&&window.matchMedia('(prefers-color-scheme:light)').matches))document.documentElement.classList.add('light')})();</script>
-  <link rel="canonical" href={`${Astro.site}${Astro.url.pathname}`} />
-  <meta name="description" content="Todos los tags en otro.blog.mas" />
-  <meta property="og:title" content="Tags | otro.blog.mas" />
-  <meta property="og:description" content="Todos los tags en otro.blog.mas" />
-  <meta property="og:url" content={`${Astro.site}${Astro.url.pathname}`} />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-</head>
-<body>
-  <header>
-    <a href={`${import.meta.env.BASE_URL}/`}>← otro.blog.mas</a>
-    <h1>Tags</h1>
-  </header>
-  <main>
-    <div class="tags">
-      {sortedTags.map(([tag, count]) => (
-        <a href={`${import.meta.env.BASE_URL}/tags/${tag}/`} class="tag">
-          {tag} ({count})
-        </a>
-      ))}
+<Base
+  title="Tags"
+  description="Todos los tags de otro.blog.mas: arte, poesía, tecnología, hacktivismo, DIY y microcontroladores."
+>
+  <div class="shell">
+    <div class="page-head">
+      <h1>Tags</h1>
+      <p>{tags.length} tags · {posts.length} textos</p>
     </div>
-  </main>
-</body>
-</html>
+    <ul class="tag-list">
+      {tags.map(([key, { count, label }]) => (
+        <li>
+          <a class="tag-row" href={`${BASE}tags/${key}/`}>
+            <span>{label}</span>
+            <span class="tag-count">{count}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>

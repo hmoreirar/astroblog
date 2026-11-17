@@ -7,4 +7,7 @@ export default defineConfig({
   base: "/astroblog",
   site: "https://hmoreirar.github.io",
   integrations: [sitemap()],
+  markdown: {
+    syntaxHighlight: false,
+  },
 });

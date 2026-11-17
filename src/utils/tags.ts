@@ -1,28 +1,58 @@
 export function normalizeTag(tag: string): string {
   return tag
     .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\s+/g, '-');
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "-");
 }
 
-export function getUniqueTags(tags: string[]): string[] {
-  return [...new Set(tags.map(normalizeTag))];
+export interface TagLink {
+  key: string;
+  label: string;
+}
+
+const LABELS: Record<string, string> = {
+  politica: "política",
+  tecnologia: "tecnología",
+  musica: "música",
+  critica: "crítica",
+  filosofia: "filosofía",
+  "vision-artificial": "visión artificial",
+  "capitalismo-de-vigilancia": "capitalismo de vigilancia",
+  "live-coding": "live coding",
+  "web-development": "web development",
+};
+
+export function tagLabel(key: string): string {
+  return LABELS[key] ?? key.replace(/-/g, " ");
+}
+
+export function tagLinks(tags: string[]): TagLink[] {
+  const seen = new Set<string>();
+  const links: TagLink[] = [];
+  for (const tag of tags) {
+    const key = normalizeTag(tag);
+    if (!seen.has(key)) {
+      seen.add(key);
+      links.push({ key, label: tagLabel(key) });
+    }
+  }
+  return links;
 }
 
 export function collectTags(
   posts: Array<{ data: { tags: string[] } }>,
-): Map<string, number> {
-  const tagCounts = new Map<string, number>();
+): Map<string, { count: number; label: string }> {
+  const tags = new Map<string, { count: number; label: string }>();
   for (const post of posts) {
-    const seen = new Set<string>();
-    for (const tag of post.data.tags) {
-      const normalized = normalizeTag(tag);
-      if (!seen.has(normalized)) {
-        seen.add(normalized);
-        tagCounts.set(normalized, (tagCounts.get(normalized) ?? 0) + 1);
+    for (const { key, label } of tagLinks(post.data.tags)) {
+      const entry = tags.get(key);
+      if (entry) {
+        entry.count += 1;
+      } else {
+        tags.set(key, { count: 1, label });
       }
     }
   }
-  return tagCounts;
+  return tags;
 }

@@ -1,0 +1,49 @@
+---
+import { tagLinks } from "../utils/tags";
+import { BASE } from "../utils/base";
+
+export interface Props {
+  posts: Array<{
+    id: string;
+    data: { title: string; date: Date; tags: string[] };
+  }>;
+}
+
+const { posts } = Astro.props;
+
+const slugOf = (id: string) => id.replace(/\/index\.md$/, "");
+
+const dateParts = (date: Date) => {
+  const day = new Intl.DateTimeFormat("es-ES", { day: "2-digit" }).format(date);
+  const month = new Intl.DateTimeFormat("es-ES", { month: "short" })
+    .format(date)
+    .replace(".", "")
+    .slice(0, 3);
+  return { day, month, year: String(date.getFullYear()) };
+};
+---
+
+<ol class="index">
+  {posts.map((post, i) => {
+    const { day, month, year } = dateParts(post.data.date);
+    const slug = slugOf(post.id);
+    return (
+      <li class="index-item" style={`--i: ${i}`}>
+        <article class="post-row">
+          <time class="post-date" datetime={post.data.date.toISOString()}>
+            <span>{day} {month}</span>
+            <span>{year}</span>
+          </time>
+          <h2 class="post-title">
+            <a href={`${BASE}posts/${slug}/`}>{post.data.title}</a>
+          </h2>
+          <p class="post-tags">
+            {tagLinks(post.data.tags).map((tag) => (
+              <a href={`${BASE}tags/${tag.key}/`}>{tag.label}</a>
+            ))}
+          </p>
+        </article>
+      </li>
+    );
+  })}
+</ol>

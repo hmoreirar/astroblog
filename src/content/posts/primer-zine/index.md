@@ -5,7 +5,7 @@ tags: ["arte", "hacktivismo", "zine"]
 cover: "/images/posts/primer-zine/cover.jpg"
 ---
 
-# Manifiesto Digital
+## Manifiesto Digital
 
 Este es el primer número de nuestro zine digital, donde exploramos la intersección entre el arte, la tecnología y el activismo.
 

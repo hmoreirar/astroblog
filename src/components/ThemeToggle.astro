@@ -1,46 +1,35 @@
-<button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
-  <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="5"/>
-    <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+<button
+  id="theme-toggle"
+  class="theme-toggle"
+  type="button"
+  aria-label="Cambiar tema"
+  aria-pressed="false"
+  title="Cambiar tema"
+>
+  <svg class="sun-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4.5" />
+    <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" />
   </svg>
-  <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  <svg class="moon-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5 8.6 8.6 0 1 0 20.5 14.3Z" />
   </svg>
 </button>
 
-<style is:global>
-  .theme-toggle {
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--text);
-    cursor: pointer;
-    padding: 0.35rem 0.5rem;
-    display: inline-flex;
-    align-items: center;
-    line-height: 1;
-    font-family: inherit;
-    font-size: 0.85rem;
-    box-shadow: 3px 3px 0 0 var(--subtle-border);
-  }
-  .theme-toggle:hover {
-    background: var(--accent);
-    color: var(--bg);
-  }
-
-  html:not(.light) .moon-icon { display: none; }
-  html.light .sun-icon { display: none; }
-</style>
-
 <script>
-  const btn = document.getElementById('theme-toggle');
+  const btn = document.getElementById("theme-toggle");
   if (btn) {
-    btn.addEventListener('click', () => {
-      const html = document.documentElement;
-      const isLight = html.classList.toggle('light');
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    const sync = () => {
+      const isLight = document.documentElement.classList.contains("light");
+      btn.setAttribute("aria-pressed", String(isLight));
+      document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute("content", isLight ? "#f7f6f2" : "#0f0f0e");
+    };
+    sync();
+    btn.addEventListener("click", () => {
+      const isLight = document.documentElement.classList.toggle("light");
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+      sync();
     });
   }
 </script>

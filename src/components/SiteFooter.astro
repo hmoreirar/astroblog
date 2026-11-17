@@ -1,0 +1,11 @@
+---
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <p>© {year} otro.blog.mas</p>
+  <p>{posts.length} textos en el blog</p>
+</footer>

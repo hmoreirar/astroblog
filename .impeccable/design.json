@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-17T00:00:00.000Z",
+  "title": "Design System: otro.blog.mas",
+  "extensions": {
+    "colorMeta": {
+      "ink-black": {
+        "role": "primary",
+        "displayName": "Tinta nocturna",
+        "canonical": "#0f0f0e",
+        "tonalRamp": ["#0b0b0a", "#0f0f0e", "#171715", "#242422", "#3a3936", "#5c5a55", "#8a877f", "#c9c6bd"]
+      },
+      "paper-white": {
+        "role": "primary",
+        "displayName": "Papel",
+        "canonical": "#f7f6f2",
+        "tonalRamp": ["#2a2925", "#43423d", "#5f5c55", "#8d8a82", "#b0ada4", "#d9d7d0", "#efeee8", "#f7f6f2"]
+      },
+      "text-dark": {
+        "role": "neutral",
+        "displayName": "Tinta de lectura",
+        "canonical": "#e7e5df",
+        "tonalRamp": ["#1b1a17", "#2f2e2a", "#4b4944", "#6f6c65", "#a3a099", "#c9c6bd", "#e7e5df", "#f8f7f3"]
+      },
+      "muted-dark": {
+        "role": "neutral",
+        "displayName": "Tinta apagada",
+        "canonical": "#a3a099",
+        "tonalRamp": ["#171715", "#2b2b28", "#46453f", "#6f6c65", "#a3a099", "#c2bfb6", "#dedbd3", "#f8f7f3"]
+      },
+      "rule-dark": {
+        "role": "neutral",
+        "displayName": "Regla",
+        "canonical": "#2b2b28",
+        "tonalRamp": ["#0f0f0e", "#1a1a18", "#2b2b28", "#3c3b37", "#4f4e48", "#6b6962", "#8d8a82", "#b3b0a7"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Título de post; máximo 24ch." },
+      "title": { "displayName": "Título de índice", "purpose": "Título de cada fila del índice." },
+      "body": { "displayName": "Cuerpo", "purpose": "Lectura larga a 66ch." },
+      "label": { "displayName": "Etiqueta", "purpose": "Fechas, tags, nav, meta y pies." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.2, 0.7, 0.2, 1)", "purpose": "Transiciones de hover, subrayado y desplazamiento de 2px." },
+      { "name": "index-rise", "value": "500ms ease-standard, retardo 60ms + 35ms por fila", "purpose": "Única entrada coreografiada; se cancela con prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "760px" },
+      { "name": "lg", "value": "1080px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Theme Toggle",
+      "kind": "button",
+      "refersTo": "theme-toggle",
+      "description": "Único botón del sitio; alterna tinta y papel.",
+      "html": "<button class=\"ds-toggle\" type=\"button\" aria-label=\"Cambiar tema\" aria-pressed=\"false\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\"><circle cx=\"12\" cy=\"12\" r=\"4.5\"/><path d=\"M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8\"/></svg></button>",
+      "css": ".ds-toggle{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;padding:0;border:1px solid var(--rule);border-radius:2px;background:transparent;color:var(--ink-muted);cursor:pointer;transition:color .25s cubic-bezier(.2,.7,.2,1),border-color .25s cubic-bezier(.2,.7,.2,1)}.ds-toggle:hover{border-color:var(--rule-strong);color:var(--ink-strong)}.ds-toggle:focus-visible{outline:2px solid var(--ink-strong);outline-offset:3px}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Wordmark, enlace de tags y toggle en una fila; labels en mayúsculas.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-wordmark\" href=\"#\">otro.blog.mas</a><div class=\"ds-nav-links\"><a href=\"#\">tags</a></div></nav>",
+      "css": ".ds-nav{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:36px 0 18px;border-bottom:1px solid var(--rule)}.ds-wordmark{font-size:.98rem;font-weight:600;letter-spacing:-.01em;color:var(--ink-strong);text-decoration:none}.ds-wordmark:hover{text-decoration:underline;text-underline-offset:.28em;text-decoration-thickness:1px}.ds-nav-links a{font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-muted);text-decoration:none}.ds-nav-links a:hover{color:var(--ink-strong)}"
+    },
+    {
+      "name": "Index Row",
+      "kind": "custom",
+      "refersTo": "post-row",
+      "description": "Fila del índice: fecha, título y tags; toda la fila es clicable.",
+      "html": "<article class=\"ds-row\"><time class=\"ds-date\"><span>05 sep</span><span>2026</span></time><h2 class=\"ds-row-title\"><a href=\"#\">Jaulas sin barrotes</a></h2><p class=\"ds-row-tags\"><a href=\"#\">sociedad</a><a href=\"#\">tecnología</a></p></article>",
+      "css": ".ds-row{position:relative;display:grid;grid-template-columns:5.5rem minmax(0,1fr) 18rem;align-items:baseline;gap:28px;padding:24px 0;border-top:1px solid var(--rule)}.ds-date{display:flex;flex-direction:column;font-size:.7rem;line-height:1.4;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-muted);font-variant-numeric:tabular-nums}.ds-row-title{margin:0;font-size:1.3rem;font-weight:500;line-height:1.28;letter-spacing:-.015em;transition:transform .35s cubic-bezier(.2,.7,.2,1)}.ds-row-title a{color:var(--ink-strong);text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:background-size .35s cubic-bezier(.2,.7,.2,1)}.ds-row-title a::after{content:'';position:absolute;inset:0}.ds-row:hover .ds-row-title{transform:translateX(2px)}.ds-row:hover .ds-row-title a{background-size:100% 1px}.ds-row-tags{display:flex;flex-wrap:wrap;gap:.15rem .9rem;margin:0;font-size:.7rem;letter-spacing:.05em;color:var(--ink-muted)}.ds-row-tags a{position:relative;z-index:1;color:var(--ink-muted);text-decoration:none}.ds-row-tags a:hover{color:var(--ink-strong);text-decoration:underline;text-underline-offset:.2em}"
+    },
+    {
+      "name": "Tag Link",
+      "kind": "chip",
+      "refersTo": "tag-link",
+      "description": "Tag como texto, sin cápsula ni borde.",
+      "html": "<a class=\"ds-tag\" href=\"#\">tecnología</a>",
+      "css": ".ds-tag{font-size:.7rem;letter-spacing:.05em;color:var(--ink-muted);text-decoration:none}.ds-tag:hover{color:var(--ink-strong);text-decoration:underline;text-underline-offset:.2em}"
+    },
+    {
+      "name": "Page Head",
+      "kind": "custom",
+      "refersTo": "page-head",
+      "description": "Cabecera de página con etiqueta y conteo, cerrada por hairline fuerte.",
+      "html": "<div class=\"ds-page-head\"><h1>Índice</h1><p>12 textos</p></div>",
+      "css": ".ds-page-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:44px 0 16px;border-bottom:1px solid var(--rule-strong)}.ds-page-head h1{margin:0;font-size:1rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-strong)}.ds-page-head p{margin:0;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-muted);font-variant-numeric:tabular-nums}"
+    }
+  ],
+  "narrative": {
+    "northStar": "El índice de imprenta",
+    "overview": "El sitio se comporta como la tabla de contenidos de un cuaderno impreso: fecha apilada en un rail, título al centro, materias a la derecha, separados por hairlines de un píxel. La pantalla es papel o su inverso nocturno; la tinta nunca compite con el texto.",
+    "keyCharacteristics": [
+      "Monocromo estricto, tinta y papel, sin color de acento.",
+      "Una sola familia: Spline Sans Mono, self-hosted.",
+      "Hairlines de 1px como único sistema de separación y profundidad.",
+      "Índice en tres columnas: fecha, título, tags.",
+      "Medida de lectura de 66 caracteres y ritmo vertical constante."
+    ],
+    "rules": [
+      { "name": "The No-Color Rule", "body": "No hay color de acento. Ningún estado se comunica con un tono nuevo: se comunica con peso, inversión o subrayado.", "section": "colors" },
+      { "name": "The Two Grounds Rule", "body": "Oscuro y claro son el mismo sistema invertido, no dos temas. Los tokens cambian de valor, nunca de rol.", "section": "colors" },
+      { "name": "The One-Voice Rule", "body": "Una sola familia en todo el sitio. La jerarquía se construye con tamaño, peso y espacio.", "section": "typography" },
+      { "name": "The Flat Rule", "body": "Ningún elemento se eleva. Si algo necesita separarse, se separa con una regla o con espacio.", "section": "elevation" },
+      { "name": "The 1px Rule", "body": "Todas las divisiones miden 1px. Las reglas de 2px o más pertenecen al vocabulario anterior.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do usar hairlines de 1px y espacio para separar.",
+      "Do mantener el cuerpo entre 65 y 75ch.",
+      "Do usar cifras tabulares en fechas y conteos.",
+      "Do respetar prefers-reduced-motion.",
+      "Do mantener contraste AA y foco visible."
+    ],
+    "donts": [
+      "Don't introducir color de acento, neón ni verde fósforo.",
+      "Don't reintroducir pseudo-prompts, corchetes en tags ni Matrix.",
+      "Don't usar tarjetas, sombras ni radios mayores de 2px.",
+      "Don't añadir una segunda familia tipográfica.",
+      "Don't resaltar sintaxis con color."
+    ]
+  }
+}

@@ -1,9 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
-import { normalizeTag } from '../../utils/tags';
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import PostList from "../../components/PostList.astro";
+import { normalizeTag, tagLabel } from "../../utils/tags";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
+  const posts = await getCollection("posts");
   const tagPosts = new Map<string, typeof posts>();
 
   for (const post of posts) {
@@ -20,53 +22,29 @@ export async function getStaticPaths() {
     }
   }
 
-  return Array.from(tagPosts.entries()).map(([tag, posts]) => ({
+  return Array.from(tagPosts.entries()).map(([tag, taggedPosts]) => ({
     params: { tag },
-    props: { tag, posts },
+    props: { tag, posts: taggedPosts },
   }));
 }
 
 const { tag, posts } = Astro.props;
-const sortedPosts = posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-import '../../styles/global.css';
+const sortedPosts = [...posts].sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+const count = sortedPosts.length;
+const label = tagLabel(tag);
 ---
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#{tag} | otro.blog.mas</title>
-  <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
-  <link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
-  <script is:inline>(function(){var t=localStorage.getItem('theme');if(t==='light'||(!t&&window.matchMedia('(prefers-color-scheme:light)').matches))document.documentElement.classList.add('light')})();</script>
-  <link rel="canonical" href={`${Astro.site}${Astro.url.pathname}`} />
-  <meta name="description" content={`Posts etiquetados con #${tag} en otro.blog.mas`} />
-  <meta property="og:title" content={`#${tag} | otro.blog.mas`} />
-  <meta property="og:description" content={`Posts etiquetados con #${tag} en otro.blog.mas`} />
-  <meta property="og:url" content={`${Astro.site}${Astro.url.pathname}`} />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-</head>
-<body>
-  <header>
-    <a href={`${import.meta.env.BASE_URL}/`}>← otro.blog.mas</a>
-    <h1>#{tag}</h1>
-    <p class="meta">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
-  </header>
-  <main>
-    {sortedPosts.map(post => (
-      <article class="post">
-        <h2>
-          <a href={`${import.meta.env.BASE_URL}/posts/${post.id.replace(/\/index\.md$/, '')}`}>
-            {post.data.title}
-          </a>
-        </h2>
-        <div class="meta">
-          {post.data.date.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
-        </div>
-      </article>
-    ))}
-  </main>
-</body>
-</html>
+<Base
+  title={label}
+  description={`Textos etiquetados con ${label} en otro.blog.mas.`}
+>
+  <div class="shell">
+    <div class="page-head">
+      <h1>{label}</h1>
+      <p>{count} {count === 1 ? "texto" : "textos"}</p>
+    </div>
+    <PostList posts={sortedPosts} />
+  </div>
+</Base>
